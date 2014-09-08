@@ -1,8 +1,10 @@
 package Macierze.M;
 
+import java.util.Iterator;
 import java.util.Random;
 
-public class Vector3D extends Algebra implements Dzialaj <Vector3D>, Wypisywalny{
+
+public class Vector3D extends Algebra implements Dzialaj <Vector3D>, Wypisywalny, Iterable{
     int [] punkt = new int[3];
     
    Vector3D()
@@ -19,7 +21,6 @@ public class Vector3D extends Algebra implements Dzialaj <Vector3D>, Wypisywalny
            punkt[2]=c;
    }
    
-  
    public void wypisz()
    {
        Vector3D A = this;
@@ -71,6 +72,39 @@ public class Vector3D extends Algebra implements Dzialaj <Vector3D>, Wypisywalny
        dlugosc = Math.sqrt(dlugosc);
        return dlugosc;
    }
+   
+
+private class Vector3DIt implements Iterator{
+
+    private int pozycja;
+    
+
+    public boolean hasNext() {
+        if(pozycja<punkt.length)
+            {
+                return true;
+            }
+        else{
+             return false;
+        }
+               
+    }
+
+
+    public Object next() {
+        if(this.hasNext())
+                return punkt[pozycja++];
+            else
+                return null;
+   
+    }
+}
+
+    public Iterator iterator() {
+        Vector3DIt cos = new Vector3DIt();
+        return cos;
+    }
+   
 }
 
 

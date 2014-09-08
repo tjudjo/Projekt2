@@ -1,8 +1,9 @@
 package Macierze.M;
 
+import java.util.Iterator;
 import java.util.Random;
 
-public class Macierz extends Algebra implements Dzialaj <Macierz>, Wypisywalny {
+public class Macierz extends Algebra implements Dzialaj <Macierz>, Wypisywalny, Iterable {
     protected int rozmiar;
     protected double [][] macierz;
 
@@ -161,10 +162,48 @@ public class Macierz extends Algebra implements Dzialaj <Macierz>, Wypisywalny {
         return wyznacznik;
     }
     
-        
-        
-        
-        
+     
+     
+
+     public Iterator iterator() {
+         MacierzIt cos = new MacierzIt();
+         return cos;
+         
+     }
+     
+     
+     
+     private class MacierzIt implements Iterator{
+
+    	    private int pozycjaW,pozycjaK;  //pozycja wiersza, pozycja kolumny
+    	    
+    	    public boolean hasNext() {
+    	        if(pozycjaW < rozmiar)
+    	            {
+    	                if(pozycjaW == rozmiar-1 && pozycjaK == rozmiar){
+    	                    return false;
+    	                }
+    	                return true;
+    	            }
+    	        else{
+    	             return false;
+    	        }
+    	               
+    	    }
+
+    	    public Object next() {
+    	        if(this.hasNext()){
+    	                if(pozycjaK >= rozmiar){
+    	                    pozycjaW++;
+    	                    pozycjaK = 0;
+    	                }
+    	                return macierz[pozycjaW][pozycjaK++];   
+    	        }    
+    	            else
+    	                return null;
+    	        
+    	    }
+    	}
       
         
         
