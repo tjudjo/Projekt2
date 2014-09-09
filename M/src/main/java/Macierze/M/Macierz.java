@@ -3,7 +3,7 @@ package Macierze.M;
 import java.util.Iterator;
 import java.util.Random;
 
-public class Macierz extends Algebra implements Dzialaj <Macierz>, Wypisywalny, Iterable {
+public final class Macierz extends Algebra implements Dzialaj<Macierz>, Iterable, Wypisywalny {
     protected int rozmiar;
     protected double [][] macierz;
 
@@ -162,7 +162,18 @@ public class Macierz extends Algebra implements Dzialaj <Macierz>, Wypisywalny, 
         return wyznacznik;
     }
     
+     private static volatile Macierz m = null;   //singleton
      
+     public static Macierz Instance() {
+         if (m == null) {
+             synchronized (Macierz.class) {
+                 if (m == null) {
+                     return new Macierz();
+                 }
+             }
+         }
+         return m;
+     }
      
 
      public Iterator iterator() {

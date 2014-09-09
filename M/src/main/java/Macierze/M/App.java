@@ -29,12 +29,12 @@ public class App {
 	   
 System.out.println("\n\n");
    Vector3D x = new Vector3D();
-   
 
-   Wypisywalny a  = new Vector3D();
+   Wypisywalny a = new Vector3D();
+   
    a = new Dekorator(a);
    a.wypisz();
-   
+
    }
     
 }

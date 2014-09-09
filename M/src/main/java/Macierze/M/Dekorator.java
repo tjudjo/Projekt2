@@ -11,6 +11,4 @@ public class Dekorator implements Wypisywalny {
     	System.out.println("Wartość poszczególnych składników jest równa: ");
     	deco.wypisz();
     }
-    
- 
  }

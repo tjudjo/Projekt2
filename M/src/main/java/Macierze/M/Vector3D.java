@@ -2,12 +2,14 @@ package Macierze.M;
 
 import java.util.Iterator;
 import java.util.Random;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 
 
 public class Vector3D implements Iterable, Dzialaj <Vector3D>, Wypisywalny{
     int [] punkt = new int[3];
     
-   Vector3D()
+    Vector3D()
    {
        Random rnd = new Random();
        for(int i=0; i<3; i++)
@@ -21,12 +23,11 @@ public class Vector3D implements Iterable, Dzialaj <Vector3D>, Wypisywalny{
            punkt[2]=c;
    }
    
-   public void wypisz()
-   {
-       Vector3D A = this;
-       for(int i=0; i<3; i++)
-           System.out.print(A.punkt[i] + " ");
-        System.out.println();
+   public void wypisz()     
+   {	Vector3D x = this;
+        for(Object aaa : x){			//iterator
+            System.out.print(aaa + " ");
+        }
    }
    
  
@@ -73,6 +74,22 @@ public class Vector3D implements Iterable, Dzialaj <Vector3D>, Wypisywalny{
        return dlugosc;
    }
    
+   
+   private static volatile Vector3D vector = null;   //singleton
+   
+   public static Vector3D getInstance() {
+       if (vector == null) {
+           synchronized (Vector3D.class) {
+               if (vector == null) {
+                   vector = new Vector3D();
+               } 
+           }
+       }
+       return vector;
+   }
+   
+   
+   
 
 private class Vector3DIt implements Iterator{
 
@@ -104,6 +121,8 @@ private class Vector3DIt implements Iterator{
         Vector3DIt cos = new Vector3DIt();
         return cos;
     }
+
+
    
 }
 
