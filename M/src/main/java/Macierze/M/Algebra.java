@@ -1,4 +1,4 @@
-0package Macierze.M;
+package Macierze.M;
 
 public abstract class Algebra {
  

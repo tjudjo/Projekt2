@@ -83,7 +83,7 @@ public final class Macierz extends Algebra implements Dzialaj<Macierz>, Iterable
        Macierz C = new Macierz(A.macierz.length, A.macierz[0].length);
        C=A;
        int rowsInA = A.macierz.length;
-       int columnsInA = A.macierz[0].length; // same as rows in B
+       int columnsInA = A.macierz[0].length;
        int columnsInB = B.macierz.length;
        for (int i = 0; i < rowsInA; i++) {
            for (int j = 0; j < columnsInB; j++) {
@@ -175,7 +175,7 @@ public final class Macierz extends Algebra implements Dzialaj<Macierz>, Iterable
          return m;
      }
      
-
+//iterator
      public Iterator iterator() {
          MacierzIt cos = new MacierzIt();
          return cos;
