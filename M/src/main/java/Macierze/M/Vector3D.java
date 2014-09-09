@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Random;
 
 
-public class Vector3D extends Algebra implements Dzialaj <Vector3D>, Wypisywalny, Iterable{
+public class Vector3D implements Iterable, Dzialaj <Vector3D>, Wypisywalny{
     int [] punkt = new int[3];
     
    Vector3D()
@@ -56,13 +56,13 @@ public class Vector3D extends Algebra implements Dzialaj <Vector3D>, Wypisywalny
        A.punkt[1] = C.punkt[2]*B.punkt[0]-C.punkt[0]*B.punkt[2];
        A.punkt[2] = C.punkt[0]*B.punkt[1]-C.punkt[1]*B.punkt[0];
    }
-   
-   @Override
-   public int licz()
-   {   
-       return 3;
-       
-   }
+//   
+//   @Override
+//   public int licz()
+//   {   
+//       return 3;
+//       
+//   }
        
    public double dlugosc()
    {

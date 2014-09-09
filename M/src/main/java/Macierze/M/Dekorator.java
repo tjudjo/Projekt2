@@ -6,10 +6,10 @@ public class Dekorator implements Wypisywalny {
     protected Dekorator(Wypisywalny deco){
         this.deco = deco;
     } 
-     
+
     public void wypisz(){
     	System.out.println("Wartość poszczególnych składników jest równa: ");
-    	//deco.wypisz();
+    	deco.wypisz();
     }
     
  

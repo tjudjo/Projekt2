@@ -30,12 +30,10 @@ public class App {
 System.out.println("\n\n");
    Vector3D x = new Vector3D();
    
-   System.out.print("Wektor x = ");
-   for(Object aaa : x){
-       System.out.print(aaa + " ");
-   }
 
-   x.wypisz();
+   Wypisywalny a  = new Vector3D();
+   a = new Dekorator(a);
+   a.wypisz();
    
    }
     
