@@ -23,6 +23,13 @@ public class Vector3D implements Iterable, Dzialaj <Vector3D>, Wypisywalny{
            punkt[2]=c;
    }
    
+   public Vector3D(Vector3D a)
+   {
+           punkt[0]=a.punkt[0];
+           punkt[1]=a.punkt[1];
+           punkt[2]=a.punkt[2];
+   }
+   
    public void wypisz()     
    {	Vector3D x = this;
         for(Object aaa : x){			//iterator
@@ -57,7 +64,7 @@ public class Vector3D implements Iterable, Dzialaj <Vector3D>, Wypisywalny{
        A.punkt[1] = C.punkt[2]*B.punkt[0]-C.punkt[0]*B.punkt[2];
        A.punkt[2] = C.punkt[0]*B.punkt[1]-C.punkt[1]*B.punkt[0];
    }
-//   
+
 //   @Override
 //   public int licz()
 //   {   
